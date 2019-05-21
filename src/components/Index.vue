@@ -28,9 +28,14 @@ export default {
   },
   methods: {
     deleteSoothie(id) {
-      this.soothies = this.soothies.filter(soothie => {
-        return soothie.id != id;
-      });
+      db.collection("smoothies")
+        .doc(id)
+        .delete()
+        .then(() => {
+          this.soothies = this.soothies.filter(soothie => {
+            return soothie.id != id;
+          });
+        });
     }
   },
 
