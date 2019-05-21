@@ -17,25 +17,13 @@
 </template>
 
 <script>
+import { db, fb } from "@/components/firebase";
 export default {
   name: "Index",
   props: {},
   data() {
     return {
-      soothies: [
-        {
-          title: "Choco",
-          slug: "choco",
-          ingrediances: ["Bananna", "Apple", "choclate", "choco"],
-          id: "1"
-        },
-        {
-          title: "Venila Ice",
-          slug: "venila-ice",
-          ingrediances: ["Bananna", "Apple", "choclate", "choco"],
-          id: "2"
-        }
-      ]
+      soothies: []
     };
   },
   methods: {
@@ -44,6 +32,18 @@ export default {
         return soothie.id != id;
       });
     }
+  },
+
+  created() {
+    db.collection("smoothies")
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          let soothie = doc.data();
+          soothie.id = doc.id;
+          this.soothies.push(soothie);
+        });
+      });
   }
 };
 </script>
