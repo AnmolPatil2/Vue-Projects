@@ -7,7 +7,7 @@
         </div>
         <h2 class="indigo-text">{{soothie.title}}</h2>
         <ul class="ingrediance">
-          <li v-for="(ingrediance,index) in soothie.ingrediances" :key="index">
+          <li v-for="(ingrediance,index) in soothie.ingredients" :key="index">
             <span class="chip">{{ingrediance}}</span>
           </li>
         </ul>

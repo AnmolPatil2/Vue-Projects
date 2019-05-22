@@ -2,14 +2,15 @@
   <div calss="navbar">
     <nav class="nav-extended indigo darken-2">
       <div class="nav-content">
-        <router-link to></router-link>
-        <span class="nav-title">Firebase CURD</span>
+        <router-link :to="{name:'Index'}">
+          <span class="nav-title">Firebase CURD</span>
+        </router-link>
         <div class="nontitle">
           <router-link to="/">Home</router-link>|
           <router-link to="/about">About</router-link>
         </div>
         <a href class="btn-floating btn-large halfway-fab pink">
-          <router-link to>
+          <router-link :to="{name:'Add'}">
             <i class="material-icons">add</i>
           </router-link>
         </a>
